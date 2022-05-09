@@ -83,8 +83,7 @@ app.get("/wows/random", (req, res) => {
           a.director.localeCompare(b.director)
         );
       }
-    } else {
-      if (sortBy === "number_current_wow") {
+    } else if (sortBy === "number_current_wow") {
         if (direction === "desc") {
           randomWow = randomWow.sort(
             (a, b) => b.current_wow_in_movie - a.current_wow_in_movie
@@ -94,6 +93,20 @@ app.get("/wows/random", (req, res) => {
             (a, b) => a.current_wow_in_movie - b.current_wow_in_movie
           );
         }
+    } else if (sortBy === "movie_clip_size") {
+        if (direction === "desc") {
+          randomWow = randomWow.sort((a, b) => b.movie_clip_size - a.movie_clip_size);
+        } else {
+          randomWow = randomWow.sort((a, b) => a.movie_clip_size - b.movie_clip_size);
+        }
+    } else {
+      if (sortBy === "audio_clip_length") {
+        if (direction === "desc") {
+          randomWow = randomWow.sort((a, b) => b.audio_clip_length - a.audio_clip_length);
+        } else {
+          randomWow = randomWow.sort((a, b) => a.audio_clip_length - b.audio_clip_length);
+        }
+
       }
     }
   }

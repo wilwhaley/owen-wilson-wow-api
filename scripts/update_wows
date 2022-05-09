@@ -1,0 +1,78 @@
+#!/bin/env python3.9
+import argparse
+import json
+import os
+import requests
+import shutil
+import subprocess
+import tempfile
+import urllib
+
+# The wow data is stored adjacent to the scripts directory (where
+# this file lives.)
+INSTALL_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR = os.path.join(INSTALL_DIR, 'data')
+
+def _update_movie_clip_size(wow):
+    """Add the 1080p movie clip size (in Kb) to the wow dictionary."""
+    url = wow['video']['1080p']
+    req = requests.head(url)
+    size_b = int(req.headers['content-length'])
+    size_kb = size_b / 1024
+    wow['movie_clip_size'] = size_kb
+
+def _update_audio_clip_length(wow):
+    """Add the audio clip size (in seconds) to the wow dictionary."""
+    url = wow['audio']
+
+    # Retrieve the audio file so that we can query the duration.
+    base, ext = os.path.splitext(url)
+    tmp_file = tempfile.NamedTemporaryFile(suffix=ext, delete=True)
+    urllib.request.urlretrieve(url, tmp_file.name)
+
+    # Assume sox is installed.
+    sox = shutil.which('sox')
+    duration = subprocess.check_output([sox, '--i', '-D', tmp_file.name])
+    duration = duration.decode().rstrip()
+
+    wow['audio_clip_length'] = float(duration)
+
+def main():
+    """Main function."""
+    parser = argparse.ArgumentParser(
+        description="Add audio length and video size to the wow data."
+        )
+    parser.add_argument(
+        '-i', '--input',
+        type=os.path.abspath,
+        default=os.path.join(DATA_DIR, 'raw_wow_data.json'),
+        required=False,
+        help='The input wow json data.',
+        )
+    parser.add_argument(
+        '-o', '--output',
+        type=os.path.abspath,
+        default=os.path.join(DATA_DIR, 'wow_data.json'),
+        required=False,
+        help='The output wow json data.',
+        )
+
+    args = parser.parse_args()
+    i_file = args.input
+    o_file = args.output
+
+    # Read in the data.
+    with open(i_file, 'r') as fh:
+        data = json.loads(fh.read())
+
+    # Update each wow.
+    for wow in data:
+        _update_movie_clip_size(wow)
+        _update_audio_clip_length(wow)
+
+    # Write out the extended data.
+    with open(o_file, 'w') as fh:
+        fh.write(json.dumps(data, indent=4))
+
+if __name__ == '__main__':
+    main()

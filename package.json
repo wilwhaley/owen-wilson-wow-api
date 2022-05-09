@@ -1,5 +1,5 @@
 {
-  "name": "owen-wilson-wow-api",
+  "name": "bionic-wow-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,9 +14,10 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
-    "express": "^4.17.3",
+    "express": "^4.18.1",
     "express-sslify": "^1.2.0",
     "heroku-ssl-redirect": "^0.1.1",
-    "lodash.samplesize": "^4.2.0"
+    "lodash.samplesize": "^4.2.0",
+    "node": "^17.7.2"
   }
 }

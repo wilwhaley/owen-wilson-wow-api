@@ -7,7 +7,7 @@ info:
   license:
     name: MIT
 servers:
-  - url: https://owen-wilson-wow-api.herokuapp.com/wows
+  - url: https://bionic-wow.herokuapp.com/wows
 paths:
   /random:
     get:
@@ -54,12 +54,12 @@ paths:
             type: integer
         - name: sort
           in: query
-          description: Sort multiple random results by either movie, release_date, year, director, or number_current_wow.
+          description: Sort multiple random results by either movie, release_date, year, director, number_current_wow, movi_clip_size, or audio_clip_length.
           required: false
           example: movie
           schema:
             type: string
-            enum: [movie, release_date, year, director, number_current_wow]
+            enum: [movie, release_date, year, director, number_current_wow, movie_clip_size, audio_clip_length]
         - name: direction
           in: query
           description: Sort direction can be either asc (ascending) or desc (descending).
@@ -205,6 +205,12 @@ components:
         audio:
           type: string
           example: https://assets.ctfassets.net/bs8ntwkklfua/2A5G34x8JCQBuYwU4D2l9S/27cc467b3ff5796ff1bbe113a06a6e64/Midnight_in_Paris_Wow_5.mp3
+        movie_clip_size:
+          type: number
+          example: 2955.904
+        audio_clip_length:
+          type: number 
+          example: 1.176
     Wows:
       type: array
       items:

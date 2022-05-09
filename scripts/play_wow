@@ -1,0 +1,50 @@
+#!/bin/env python3.9
+import argparse
+import requests
+import shutil
+import subprocess
+
+def _get_random():
+    """Return a random 'wow' audio clip."""
+    url = 'https://bionic-wow.herokuapp.com/wows/random'
+    req = requests.get(url)
+    json_data = req.json()
+    return json_data[0]['audio']
+
+def main():
+    """Main function."""
+    parser = argparse.ArgumentParser(
+        description="Play a random 'wow' clip in `play` with and without an adjusted pitch."
+        )
+    parser.add_argument(
+        '-i', '--input',
+        default=_get_random(),
+        required=False,
+        help='An optional wow audio clip.',
+        )
+    parser.add_argument(
+        '-p', '--pitch',
+        type=int,
+        required=True,
+        help='The `play` pitch adjustment.',
+        )
+
+    args = parser.parse_args()
+    i_file = args.input
+    pitch = args.pitch
+
+    # Assume play is installed
+    play = shutil.which('play')
+
+    # Play the clip normally...
+    print("=" * 79)
+    print("Original clip...")
+    subprocess.check_call([play, i_file])
+
+    # and with an adjusted pitch.
+    print("=" * 79)
+    print("Modified pitch...")
+    subprocess.check_call([play, i_file, 'pitch', str(pitch)])
+
+if __name__ == '__main__':
+    main()

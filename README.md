@@ -4,11 +4,11 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/amamenko/owen-wilson-wow-api">
+  <a href="https://github.com/wilwhaley/owen-wilson-wow-api">
    <img src="https://images.ctfassets.net/bs8ntwkklfua/a8VZVlcGzNSojLjqqs0m5/9b46108b023fa929f40d6b261cb16c86/Transparent_Owen_Wilson.png" width="150" />
   </a>
    
-  <h3 align="center">The Owen Wilson Wow API</h3>
+  <h3 align="center">The "Modified" Owen Wilson "Bionic Wow" API</h3>
 
   <p align="center">
     A free JSON API for actor Owen Wilson's
@@ -16,15 +16,15 @@
     'wow' exclamations in movies
     <br />
   </p>
-   <p align="center">API Link: <a href="https://owen-wilson-wow-api.herokuapp.com/">https://owen-wilson-wow-api.herokuapp.com</a></p>
-   <p align="center">API Documentation: <a href="https://wow.readme.io">https://wow.readme.io</a></p>
+   <p align="center">API Link: <a href="https://bionic-wow.herokuapp.com/">https://bionic-wow.herokuapp.com</a></p>
+   <p align="center">Original API Documentation: <a href="https://wow.readme.io">https://wow.readme.io</a></p>
 </p>
 
 # Usage
 
 ## Random "Wow"
 
-Retrieve a random "wow" in JSON format - [https://owen-wilson-wow-api.herokuapp.com/wows/random](https://owen-wilson-wow-api.herokuapp.com/wows/random)
+Retrieve a random "wow" in JSON format - [https://bionic-wow.herokuapp.com/wows/random](https://bionic-wow.herokuapp.com/wows/random)
 
 <b>Example Response:</b>
 
@@ -48,13 +48,15 @@ Retrieve a random "wow" in JSON format - [https://owen-wilson-wow-api.herokuapp.
       "480p": "https://videos.ctfassets.net/bs8ntwkklfua/1mX1xE5VgDpkQeTueSuZzX/41850f8b5b38aa76c3131c026fca387a/Marley___Me_Wow_1_480p.mp4",
       "360p": "https://videos.ctfassets.net/bs8ntwkklfua/2b6IvSW4MdXrBPheGa8faO/e9f893766d75c311c96d85ffbcd04faf/Marley___Me_Wow_1_360p.mp4"
     },
-    "audio": "https://assets.ctfassets.net/bs8ntwkklfua/5UNHWK6YJrKFAXboH8rqGe/b071fc733b9647ada4a8cad7550a2e1b/Marley___Me_Wow_1.mp3"
+    "audio": "https://assets.ctfassets.net/bs8ntwkklfua/5UNHWK6YJrKFAXboH8rqGe/b071fc733b9647ada4a8cad7550a2e1b/Marley___Me_Wow_1.mp3",
+    "movie_clip_size": 4177.83984375,
+    "audio_clip_length": 1.776
   }
 ]
 ```
 ### Multiple Results
 
-Retrieve a specific number of random "wow" results - [https://owen-wilson-wow-api.herokuapp.com/wows/random?results=5](https://owen-wilson-wow-api.herokuapp.com/wows/random?results=5)
+Retrieve a specific number of random "wow" results - [https://bionic-wow.herokuapp.com/wows/random?results=5](https://bionic-wow.herokuapp.com/wows/random?results=5)
 
 <b>Example Response:</b>
 
@@ -78,7 +80,9 @@ Retrieve a specific number of random "wow" results - [https://owen-wilson-wow-ap
       "480p": "https://videos.ctfassets.net/bs8ntwkklfua/1h3am3BfJYUm0VXV4uKF9P/e75775ec0621889efd40ce1bc372735a/Cars_3_Wow_4_480p.mp4",
       "360p": "https://videos.ctfassets.net/bs8ntwkklfua/6eO8c3ojQA4rWMlE1hMMOa/c3a9ce4c01b2d342b33144c9f90b9e3e/Cars_3_Wow_4_360p.mp4"
     },
-    "audio": "https://assets.ctfassets.net/bs8ntwkklfua/6aJuGg3bTjqd20j59vP1Wv/6cb60311194d3a9aa040882911a5f516/Cars_3_Wow_4.mp3"
+    "audio": "https://assets.ctfassets.net/bs8ntwkklfua/6aJuGg3bTjqd20j59vP1Wv/6cb60311194d3a9aa040882911a5f516/Cars_3_Wow_4.mp3",
+    "movie_clip_size": 3290.5732421875,
+    "audio_clip_length": 1.32
   },
   {
     "movie": "The Big Year",
@@ -98,48 +102,67 @@ Retrieve a specific number of random "wow" results - [https://owen-wilson-wow-ap
       "480p": "https://videos.ctfassets.net/bs8ntwkklfua/6QMkzBk6HrfuVxVT97mQg/5877904b163d7ccdc4baa92d449858d8/The_Big_Year_Wow_1_480p.mp4",
       "360p": "https://videos.ctfassets.net/bs8ntwkklfua/5SFeCoTmyTUEJYtK0kOO92/462afffbd6315182db59271f99a5a829/The_Big_Year_Wow_1_360p.mp4"
     },
-    "audio": "https://assets.ctfassets.net/bs8ntwkklfua/45tt9xH4Uf3Rgt0EJtykZZ/b5cef0c5d09d368359f4a9c0e66a6663/The_Big_Year_Wow_1.mp3"
+    "audio": "https://assets.ctfassets.net/bs8ntwkklfua/45tt9xH4Uf3Rgt0EJtykZZ/b5cef0c5d09d368359f4a9c0e66a6663/The_Big_Year_Wow_1.mp3",
+    "movie_clip_size": 3604.697265625,
+    "audio_clip_length": 1.488
   }
 ]
 ```
 
 ### Specify year
 
-Retrieve a random "wow" from a specific year - [https://owen-wilson-wow-api.herokuapp.com/wows/random?year=2011](https://owen-wilson-wow-api.herokuapp.com/wows/random?year=2011)
+Retrieve a random "wow" from a specific year - [https://bionic-wow.herokuapp.com/wows/random?year=2011](https://bionic-wow.herokuapp.com/wows/random?year=2011)
 
 ### Specify movie
 
-Retrieve a random "wow" by the name of the movie it appears in - [https://owen-wilson-wow-api.herokuapp.com/wows/random?movie=zoolander](https://owen-wilson-wow-api.herokuapp.com/wows/random?movie=zoolander)
+Retrieve a random "wow" by the name of the movie it appears in - [https://bionic-wow.herokuapp.com/wows/random?movie=zoolander](https://bionic-wow.herokuapp.com/wows/random?movie=zoolander)
 
 ### Specify director
 
-Retrieve a random "wow" from a movie with a particular director - [https://owen-wilson-wow-api.herokuapp.com/wows/random?director=wes%20anderson](https://owen-wilson-wow-api.herokuapp.com/wows/random?director=wes%20anderson)
+Retrieve a random "wow" from a movie with a particular director - [https://bionic-wow.herokuapp.com/wows/random?director=wes%20anderson](https://bionic-wow.herokuapp.com/wows/random?director=wes%20anderson)
 
 ### Specify movie occurrence number
 
-Retrieve a random "wow" by the number of its occurrence in a movie - [https://owen-wilson-wow-api.herokuapp.com/wows/random?wow_in_movie=2](https://owen-wilson-wow-api.herokuapp.com/wows/random?wow_in_movie=2)
+Retrieve a random "wow" by the number of its occurrence in a movie - [https://bionic-wow.herokuapp.com/wows/random?wow_in_movie=2](https://bionic-wow.herokuapp.com/wows/random?wow_in_movie=2)
 
 ### Sort multiple results
 
-Sort multiple random results by either `movie`, `release_date`, `year`, d`irector`, or `number_current_wow`. Sort direction can be either `asc` (ascending) or `desc` (descending) - [https://owen-wilson-wow-api.herokuapp.com/wows/random?results=10&year=2017&sort=movie&direction=desc](https://owen-wilson-wow-api.herokuapp.com/wows/random?results=10&year=2017&sort=movie&direction=desc)
+Sort multiple random results by either `movie`, `release_date`, `year`, `director`, `number_current_wow`, `movie_clip_size`, and `audio_clip_length`. Sort direction can be either `asc` (ascending) or `desc` (descending) - [https://bionic-wow.herokuapp.com/wows/random?results=10&year=2017&sort=movie&direction=desc](https://bionic-wow.herokuapp.com/wows/random?results=10&year=2017&sort=movie&direction=desc)
 
 ## Ordered "Wow"
 
-Retrieve a specific "wow" by its index in the chronological order of all results - [https://owen-wilson-wow-api.herokuapp.com/wows/ordered/0](
-https://owen-wilson-wow-api.herokuapp.com/wows/ordered/0)
+Retrieve a specific "wow" by its index in the chronological order of all results - [https://bionic-wow.herokuapp.com/wows/ordered/0](
+https://bionic-wow.herokuapp.com/wows/ordered/0)
 
 ### Multiple Ordered "Wow" Results
 
-Retrieve all "wow" results between a first index and a second index, inclusive, in the chronological order of all results - [https://owen-wilson-wow-api.herokuapp.com/wows/ordered/3-7](https://owen-wilson-wow-api.herokuapp.com/wows/ordered/3-7)
+Retrieve all "wow" results between a first index and a second index, inclusive, in the chronological order of all results - [https://bionic-wow.herokuapp.com/wows/ordered/3-7](https://bionic-wow.herokuapp.com/wows/ordered/3-7)
 
 ## All Movies
 
-Retrieve all names of movies in which Owen Wilson says "wow" - https://owen-wilson-wow-api.herokuapp.com/wows/movies
+Retrieve all names of movies in which Owen Wilson says "wow" - https://bionic-wow.herokuapp.com/wows/movies
 
 ## All Directors
 
-Retrieve all directors of movies in which Owen Wilson says "wow" - [https://owen-wilson-wow-api.herokuapp.com/wows/directors](
-https://owen-wilson-wow-api.herokuapp.com/wows/directors)
+Retrieve all directors of movies in which Owen Wilson says "wow" - [https://bionic-wow.herokuapp.com/wows/directors](
+https://bionic-wow.herokuapp.com/wows/directors)
+
+# CLI
+
+The bionic-wow app comes with two python scripts which live in the scripts/ directory.
+
+## play_wow
+
+Use the unix `play` command to play a random audio clip normally and then with an adjusted pitch.
+
+## update_wows
+
+Add the movie_clip_size and audio_clip_length to the standard json data for each 'wow'.
+
+### These scripts assume the following tools have been installed:
+1. sox [https://www.unixmen.com/how-to-play-music-from-command-line-terminal/](How to install)
+2. python3.9 [https://linuxize.com/post/how-to-install-python-3-9-on-ubuntu-20-04/](How to install)
+
 
 <!-- LICENSE -->
 # License
@@ -149,18 +172,19 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 # Contact
 
-Owen Wilson Wow API - owenwilsonwowapi@gmail.com
+Wil Whaley - wilwhaley@gmail.com
 
-Avraham (Avi) Mamenko - avimamenko@gmail.com
+Bionic API Link: [https://bionic-wow.herokuapp.com/](https://bionic-wow.herokuapp.com/)
 
-API Link: [https://owen-wilson-wow-api.herokuapp.com/](https://owen-wilson-wow-api.herokuapp.com/)
-
-API Documentation: [https://wow.readme.io](https://wow.readme.io)
+Original API Link: [https://owen-wilson-wow-api.herokuapp.com/](https://owen-wilson-wow-api.herokuapp.com/)
+Original API Documentation: [https://wow.readme.io](https://wow.readme.io)
 
 # Disclaimer
 
 The Owen Wilson Wow API is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Owen Wilson, or any of his subsidiaries or affiliates. All motion pictures, products, and brands mentioned on this website are the respective trademarks and copyrights of their owners.
 
+# Disclaimer 2
+This is a modified version of the excellent owen-wilson-wow-api.
 
 <!-- ACKNOWLEDGEMENTS -->
 # Acknowledgements
@@ -178,6 +202,4 @@ The Owen Wilson Wow API is not affiliated, associated, authorized, endorsed by, 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/amamenko/owen-wilson-wow-api/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/avrahammamenko
+[license-url]: https://github.com/wilwhaley/owen-wilson-wow-api/blob/main/LICENSE.txt

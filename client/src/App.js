@@ -24,7 +24,7 @@ const App = () => {
     await axios
       .get(
         process.env.REACT_APP_NODE_ENV === "production"
-          ? "https://owen-wilson-wow-api.herokuapp.com/wows/random"
+          ? "https://bionic-wow.herokuapp.com/wows/random"
           : "http://localhost:4000/wows/random"
       )
       .then((res) => res.data)
@@ -56,10 +56,10 @@ const App = () => {
         <p>
           <b>
             <a
-              href="https://owen-wilson-wow-api.herokuapp.com"
+              href="https://bionic-wow.herokuapp.com"
               rel="noreferrer noopener"
             >
-              owen-wilson-wow-api.herokuapp.com
+              bionic-wow.herokuapp.com
             </a>
           </b>{" "}
           is a free JSON API for actor Owen Wilson's "wow" exclamations in
@@ -67,7 +67,7 @@ const App = () => {
           <br />
           <br />
           <a href="https://wow.readme.io" rel="noreferrer noopener">
-            View the full API docs
+            View the full Original API docs
           </a>{" "}
           (powered by{" "}
           <a href="https://readme.com" rel="noreferrer noopener">
@@ -128,8 +128,8 @@ const App = () => {
       <p>Retrieve a random "wow" in JSON format.</p>
       <pre>
         <code className="request get">
-          <a href="https://owen-wilson-wow-api.herokuapp.com/wows/random">
-            https://owen-wilson-wow-api.herokuapp.com/wows/random
+          <a href="https://bionic-wow.herokuapp.com/wows/random">
+            https://bionic-wow.herokuapp.com/wows/random
           </a>
         </code>
       </pre>
@@ -187,8 +187,8 @@ const App = () => {
       <p>Retrieve a specific number of random "wow" results.</p>
       <pre>
         <code className="request get">
-          <a href="https://owen-wilson-wow-api.herokuapp.com/wows/random?results=5">
-            https://owen-wilson-wow-api.herokuapp.com/wows/random?results=5
+          <a href="https://bionic-wow.herokuapp.com/wows/random?results=5">
+            https://bionic-wow.herokuapp.com/wows/random?results=5
           </a>
         </code>
       </pre>
@@ -196,8 +196,8 @@ const App = () => {
       <p>Retrieve a random "wow" from a specific year.</p>
       <pre>
         <code className="request get">
-          <a href="https://owen-wilson-wow-api.herokuapp.com/wows/random?year=2011">
-            https://owen-wilson-wow-api.herokuapp.com/wows/random?year=2011
+          <a href="https://bionic-wow.herokuapp.com/wows/random?year=2011">
+            https://bionic-wow.herokuapp.com/wows/random?year=2011
           </a>
         </code>
       </pre>
@@ -205,8 +205,8 @@ const App = () => {
       <p>Retrieve a random "wow" by the name of the movie it appears in.</p>
       <pre>
         <code className="request get">
-          <a href="https://owen-wilson-wow-api.herokuapp.com/wows/random?movie=zoolander">
-            https://owen-wilson-wow-api.herokuapp.com/wows/random?movie=zoolander
+          <a href="https://bionic-wow.herokuapp.com/wows/random?movie=zoolander">
+            https://bionic-wow.herokuapp.com/wows/random?movie=zoolander
           </a>
         </code>
       </pre>
@@ -214,8 +214,8 @@ const App = () => {
       <p>Retrieve a random "wow" from a movie with a particular director.</p>
       <pre>
         <code className="request get">
-          <a href="https://owen-wilson-wow-api.herokuapp.com/wows/random?director=wes%20anderson">
-            https://owen-wilson-wow-api.herokuapp.com/wows/random?director=wes%20anderson
+          <a href="https://bionic-wow.herokuapp.com/wows/random?director=wes%20anderson">
+            https://bionic-wow.herokuapp.com/wows/random?director=wes%20anderson
           </a>
         </code>
       </pre>
@@ -223,21 +223,21 @@ const App = () => {
       <p>Retrieve a random "wow" by the number of its occurrence in a movie.</p>
       <pre>
         <code className="request get">
-          <a href="https://owen-wilson-wow-api.herokuapp.com/wows/random?wow_in_movie=2">
-            https://owen-wilson-wow-api.herokuapp.com/wows/random?wow_in_movie=2
+          <a href="https://bionic-wow.herokuapp.com/wows/random?wow_in_movie=2">
+            https://bionic-wow.herokuapp.com/wows/random?wow_in_movie=2
           </a>
         </code>
       </pre>
       <h4>Sort multiple results</h4>
       <p>
         Sort multiple random results by either movie, release_date, year,
-        director, or number_current_wow. Sort direction can be either asc
-        (ascending) or desc (descending).
+        director, number_current_wow, movie_clip_size, or audio_clip_length. Sort
+        direction can be either asc (ascending) or desc (descending).
       </p>
       <pre>
         <code className="request get">
-          <a href="https://owen-wilson-wow-api.herokuapp.com/wows/random?results=10&sort=movie&direction=desc">
-            https://owen-wilson-wow-api.herokuapp.com/wows/random?results=10&sort=movie&direction=desc
+          <a href="https://bionic-wow.herokuapp.com/wows/random?results=10&sort=movie_clip_size&direction=desc">
+            https://bionic-wow.herokuapp.com/wows/random?results=10&sort=movie_clip_size&direction=desc
           </a>
         </code>
       </pre>
@@ -248,8 +248,8 @@ const App = () => {
       </p>
       <pre>
         <code className="request get">
-          <a href="https://owen-wilson-wow-api.herokuapp.com/wows/ordered/0">
-            https://owen-wilson-wow-api.herokuapp.com/wows/ordered/0
+          <a href="https://bionic-wow.herokuapp.com/wows/ordered/0">
+            https://bionic-wow.herokuapp.com/wows/ordered/0
           </a>
         </code>
       </pre>
@@ -260,8 +260,8 @@ const App = () => {
       </p>
       <pre>
         <code className="request get">
-          <a href="https://owen-wilson-wow-api.herokuapp.com/wows/ordered/3-7">
-            https://owen-wilson-wow-api.herokuapp.com/wows/ordered/3-7
+          <a href="https://bionic-wow.herokuapp.com/wows/ordered/3-7">
+            https://bionic-wow.herokuapp.com/wows/ordered/3-7
           </a>
         </code>
       </pre>
@@ -269,8 +269,8 @@ const App = () => {
       <p>Retrieve all names of movies in which Owen Wilson says "wow."</p>
       <pre>
         <code className="request get">
-          <a href="https://owen-wilson-wow-api.herokuapp.com/wows/movies">
-            https://owen-wilson-wow-api.herokuapp.com/wows/movies
+          <a href="https://bionic-wow.herokuapp.com/wows/movies">
+            https://bionic-wow.herokuapp.com/wows/movies
           </a>
         </code>
       </pre>
@@ -278,14 +278,14 @@ const App = () => {
       <p>Retrieve all directors of movies in which Owen Wilson says "wow."</p>
       <pre>
         <code className="request get">
-          <a href="https://owen-wilson-wow-api.herokuapp.com/wows/directors">
-            https://owen-wilson-wow-api.herokuapp.com/wows/directors
+          <a href="https://bionic-wow.herokuapp.com/wows/directors">
+            https://bionic-wow.herokuapp.com/wows/directors
           </a>
         </code>
       </pre>
       <div className="contact">
         <p>
-          <b>Contact:</b> If you have a correction or a suggestion for the API,
+          <b>Contact:</b> If you have a correction or a suggestion for the original API,
           feel free to open up an{" "}
           <a
             href="https://github.com/amamenko/owen-wilson-wow-api/issues"
@@ -300,7 +300,7 @@ const App = () => {
           >
             GitHub repository
           </a>
-          . If you have a comment or a question about the API, you may reach out
+          . If you have a comment or a question about the original API, you may reach out
           to its creator on Twitter{" "}
           <a href="https://twitter.com/AviMamenko" rel="noopener noreferrer">
             @AviMamenko
@@ -314,12 +314,16 @@ const App = () => {
       </div>
       <div className="disclaimer">
         <p>
-          <b>Disclaimer:</b> The Owen Wilson Wow API is not affiliated,
+          <b>Disclaimer 1:</b> The Owen Wilson Wow API is not affiliated,
           associated, authorized, endorsed by, or in any way officially
           connected with Owen Wilson, or any of his subsidiaries or affiliates.
           All motion pictures, products, and brands mentioned on this website
           are the respective trademarks and copyrights of their owners.
         </p>
+	<p>
+	  <b>Disclaimer 2:</b> This is a modified version of the origina
+          owen-wilson-wow-api.
+	</p>
       </div>
       <p>
         The Owen Wilson Wow API was created in 2022 by{" "}
