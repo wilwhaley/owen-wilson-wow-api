@@ -1,5 +1,4 @@
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -151,17 +150,17 @@ https://bionic-wow.herokuapp.com/wows/directors)
 
 The bionic-wow app comes with two python scripts which live in the scripts/ directory.
 
-## play_wow
+### play_wow
 
 Use the unix `play` command to play a random audio clip normally and then with an adjusted pitch.
 
-## update_wows
+### update_wows
 
 Add the movie_clip_size and audio_clip_length to the standard json data for each 'wow'.
 
 ### These scripts assume the following tools have been installed:
-1. sox [https://www.unixmen.com/how-to-play-music-from-command-line-terminal/](How to install)
-2. python3.9 [https://linuxize.com/post/how-to-install-python-3-9-on-ubuntu-20-04/](How to install)
+1. [sox](https://www.unixmen.com/how-to-play-music-from-command-line-terminal/)
+2. [python3.9](https://linuxize.com/post/how-to-install-python-3-9-on-ubuntu-20-04/)
 
 
 <!-- LICENSE -->
