@@ -1,5 +1,4 @@
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -125,10 +124,6 @@ Retrieve a random "wow" from a movie with a particular director - [https://bioni
 
 Retrieve a random "wow" by the number of its occurrence in a movie - [https://bionic-wow.herokuapp.com/wows/random?wow_in_movie=2](https://bionic-wow.herokuapp.com/wows/random?wow_in_movie=2)
 
-### Sort multiple results
-
-Sort multiple random results by either `movie`, `release_date`, `year`, `director`, `number_current_wow`, `movie_clip_size`, and `audio_clip_length`. Sort direction can be either `asc` (ascending) or `desc` (descending) - [https://bionic-wow.herokuapp.com/wows/random?results=10&year=2017&sort=movie&direction=desc](https://bionic-wow.herokuapp.com/wows/random?results=10&year=2017&sort=movie&direction=desc)
-
 ## Ordered "Wow"
 
 Retrieve a specific "wow" by its index in the chronological order of all results - [https://bionic-wow.herokuapp.com/wows/ordered/0](
@@ -140,28 +135,54 @@ Retrieve all "wow" results between a first index and a second index, inclusive, 
 
 ## All Movies
 
-Retrieve all names of movies in which Owen Wilson says "wow" - https://bionic-wow.herokuapp.com/wows/movies
+Retrieve all names of movies in which Owen Wilson says "wow" - [https://bionic-wow.herokuapp.com/wows/movies](
+https://bionic-wow.herokuapp.com/wows/movies)
 
 ## All Directors
 
 Retrieve all directors of movies in which Owen Wilson says "wow" - [https://bionic-wow.herokuapp.com/wows/directors](
 https://bionic-wow.herokuapp.com/wows/directors)
 
+## All Audio
+
+Retrieve all audio clips from movies in which Owen Wilson says "wow" - [https://bionic-wow.herokuapp.com/wows/audio](
+https://bionic-wow.herokuapp.com/wows/audio)
+
+## All Video
+
+Retrieve all video clips from movies in which Owen Wilson says "wow" - [https://bionic-wow.herokuapp.com/wows/video](
+https://bionic-wow.herokuapp.com/wows/video)
+
+
+## Sorted Wows
+
+Every endpoint supports sorting by either `movie`, `release_date`, `year`, `director`, `number_current_wow`, `movie_clip_size`, and `audio_clip_length`. Sort direction can be either `asc` (ascending) or `desc` (descending) -
+
+[wows/random?results=3&sort=movie&direction=desc](https://bionic-wow.herokuapp.com/wows/random?results=3&sort=movie&direction=desc)
+
+[wows/video?sort=movie&direction=desc](https://bionic-wow.herokuapp.com/wows/video?sort=movie&direction=desc])
+
+[wows/audio?sort=audio_clip_length&direction=asc](https://bionic-wow.herokuapp.com/wows/audio?sort=audio_clip_length&direction=asc])
+
+[wows/video?sort=video_clip_length&direction=desc](https://bionic-wow.herokuapp.com/wows/video?sort=video_clip_length&direction=desc])
+
+[wows/ordered/3-7?sort=movie&direction=asc](https://bionic-wow.herokuapp.com/wows/ordered/3-7?sort=movie&direction=asc)
+
 # CLI
 
 The bionic-wow app comes with two python scripts which live in the scripts/ directory.
 
-## play_wow
+### play_wow
 
 Use the unix `play` command to play a random audio clip normally and then with an adjusted pitch.
 
-## update_wows
+### update_wows
 
 Add the movie_clip_size and audio_clip_length to the standard json data for each 'wow'.
 
 ### These scripts assume the following tools have been installed:
-1. sox [https://www.unixmen.com/how-to-play-music-from-command-line-terminal/](How to install)
-2. python3.9 [https://linuxize.com/post/how-to-install-python-3-9-on-ubuntu-20-04/](How to install)
+1. [sox](https://www.unixmen.com/how-to-play-music-from-command-line-terminal/)
+2. [python3.9](https://linuxize.com/post/how-to-install-python-3-9-on-ubuntu-20-04/)
 
 
 <!-- LICENSE -->

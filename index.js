@@ -15,14 +15,84 @@ if (process.env.NODE_ENV === "production") {
   app.use(enforce.HTTPS({ trustProtoHeader: true }));
 }
 
+const sortWows = (wowArr, req) => {
+  const sortBy = req.query.sort;
+  const direction = req.query.direction;
+  
+  let sortedArr = wowArr;
+
+  if (sortBy) {
+    if (sortBy === "movie") {
+      if (direction === "desc") {
+        sortedArr = sortedArr.sort((a, b) => b.movie.localeCompare(a.movie));
+      } else {
+        sortedArr = sortedArr.sort((a, b) => a.movie.localeCompare(b.movie));
+      }
+    } else if (sortBy === "release_date") {
+      if (direction === "desc") {
+        sortedArr = sortedArr.sort((a, b) =>
+          b.release_date.localeCompare(a.release_date)
+        );
+      } else {
+        sortedArr = sortedArr.sort((a, b) =>
+          a.release_date.localeCompare(b.release_date)
+        );
+      }
+    } else if (sortBy === "year") {
+      if (direction === "desc") {
+        sortedArr = sortedArr.sort((a, b) => b.year - a.year);
+      } else {
+        sortedArr = sortedArr.sort((a, b) => a.year - b.year);
+      }
+    } else if (sortBy === "director") {
+      if (direction === "desc") {
+        sortedArr = sortedArr.sort((a, b) =>
+          b.director.localeCompare(a.director)
+        );
+      } else {
+        sortedArr = sortedArr.sort((a, b) =>
+          a.director.localeCompare(b.director)
+        );
+      }
+    } else if (sortBy === "number_current_wow") {
+        if (direction === "desc") {
+          sortedArr = sortedArr.sort(
+            (a, b) => b.current_wow_in_movie - a.current_wow_in_movie
+          );
+        } else {
+          sortedArr = sortedArr.sort(
+            (a, b) => a.current_wow_in_movie - b.current_wow_in_movie
+          );
+        }
+    } else if (sortBy === "movie_clip_size") {
+        if (direction === "desc") {
+          sortedArr = sortedArr.sort((a, b) => b.movie_clip_size - a.movie_clip_size);
+        } else {
+          sortedArr = sortedArr.sort((a, b) => a.movie_clip_size - b.movie_clip_size);
+        }
+    } else {
+      if (sortBy === "audio_clip_length") {
+        if (direction === "desc") {
+          sortedArr = sortedArr.sort((a, b) => b.audio_clip_length - a.audio_clip_length);
+        } else {
+          sortedArr = sortedArr.sort((a, b) => a.audio_clip_length - b.audio_clip_length);
+        }
+
+      }
+    }
+  }
+
+  return sortedArr;
+
+};
+
+
 app.get("/wows/random", (req, res) => {
   const numResults = Number(req.query.results);
   const year = Number(req.query.year);
   const numberCurrentWow = Number(req.query.wow_in_movie);
   const movieName = req.query.movie;
   const directorName = req.query.director;
-  const sortBy = req.query.sort;
-  const direction = req.query.direction;
 
   let viableWows = wowArr;
 
@@ -50,68 +120,9 @@ app.get("/wows/random", (req, res) => {
 
   let randomWow = sampleSize(viableWows, numResults ? numResults : 1);
 
-  if (sortBy) {
-    if (sortBy === "movie") {
-      if (direction === "desc") {
-        randomWow = randomWow.sort((a, b) => b.movie.localeCompare(a.movie));
-      } else {
-        randomWow = randomWow.sort((a, b) => a.movie.localeCompare(b.movie));
-      }
-    } else if (sortBy === "release_date") {
-      if (direction === "desc") {
-        randomWow = randomWow.sort((a, b) =>
-          b.release_date.localeCompare(a.release_date)
-        );
-      } else {
-        randomWow = randomWow.sort((a, b) =>
-          a.release_date.localeCompare(b.release_date)
-        );
-      }
-    } else if (sortBy === "year") {
-      if (direction === "desc") {
-        randomWow = randomWow.sort((a, b) => b.year - a.year);
-      } else {
-        randomWow = randomWow.sort((a, b) => a.year - b.year);
-      }
-    } else if (sortBy === "director") {
-      if (direction === "desc") {
-        randomWow = randomWow.sort((a, b) =>
-          b.director.localeCompare(a.director)
-        );
-      } else {
-        randomWow = randomWow.sort((a, b) =>
-          a.director.localeCompare(b.director)
-        );
-      }
-    } else if (sortBy === "number_current_wow") {
-        if (direction === "desc") {
-          randomWow = randomWow.sort(
-            (a, b) => b.current_wow_in_movie - a.current_wow_in_movie
-          );
-        } else {
-          randomWow = randomWow.sort(
-            (a, b) => a.current_wow_in_movie - b.current_wow_in_movie
-          );
-        }
-    } else if (sortBy === "movie_clip_size") {
-        if (direction === "desc") {
-          randomWow = randomWow.sort((a, b) => b.movie_clip_size - a.movie_clip_size);
-        } else {
-          randomWow = randomWow.sort((a, b) => a.movie_clip_size - b.movie_clip_size);
-        }
-    } else {
-      if (sortBy === "audio_clip_length") {
-        if (direction === "desc") {
-          randomWow = randomWow.sort((a, b) => b.audio_clip_length - a.audio_clip_length);
-        } else {
-          randomWow = randomWow.sort((a, b) => a.audio_clip_length - b.audio_clip_length);
-        }
+  let sortedWows = sortWows(randomWow, req);
 
-      }
-    }
-  }
-
-  res.send(randomWow);
+  res.send(sortedWows);
   return;
 });
 
@@ -133,8 +144,8 @@ app.get("/wows/ordered/:index?", (req, res) => {
 
         if ((firstNum || firstNum === 0) && (secondNum || secondNum === 0)) {
           const result = wowArr.slice(firstNum, secondNum + 1);
-
-          res.send(result);
+          let sortedWows = sortWows(result, req);
+          res.send(sortedWows);
         } else {
           res
             .status(400)
@@ -163,12 +174,25 @@ const getUniqueValuesFromArr = (arr, str) => {
 };
 
 app.get("/wows/movies", (req, res) => {
-  res.send(getUniqueValuesFromArr(wowArr, "movie"));
+  let sortedWows = sortWows(wowArr, req);
+  res.send(getUniqueValuesFromArr(sortedWows, "movie"));
 });
 
 app.get("/wows/directors", (req, res) => {
-  res.send(getUniqueValuesFromArr(wowArr, "director"));
+  let sortedWows = sortWows(wowArr, req);
+  res.send(getUniqueValuesFromArr(sortedWows, "director"));
 });
+
+app.get("/wows/audio", (req, res) => {
+  let sortedWows = sortWows(wowArr, req);
+  res.send(getUniqueValuesFromArr(sortedWows, "audio"));
+});
+
+app.get("/wows/video", (req, res) => {
+  let sortedWows = sortWows(wowArr, req);
+  res.send(getUniqueValuesFromArr(sortedWows, "video"));
+});
+
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
