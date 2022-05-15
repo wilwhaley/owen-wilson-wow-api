@@ -227,20 +227,7 @@ const App = () => {
             https://bionic-wow.herokuapp.com/wows/random?wow_in_movie=2
           </a>
         </code>
-      </pre>
-      <h4>Sort multiple results</h4>
-      <p>
-        Sort multiple random results by either movie, release_date, year,
-        director, number_current_wow, movie_clip_size, or audio_clip_length. Sort
-        direction can be either asc (ascending) or desc (descending).
-      </p>
-      <pre>
-        <code className="request get">
-          <a href="https://bionic-wow.herokuapp.com/wows/random?results=10&sort=movie_clip_size&direction=desc">
-            https://bionic-wow.herokuapp.com/wows/random?results=10&sort=movie_clip_size&direction=desc
-          </a>
-        </code>
-      </pre>
+      </pre>    
       <h3>Ordered "Wow"</h3>
       <p>
         Retrieve a specific "wow" by its index in the chronological order of all
@@ -280,6 +267,45 @@ const App = () => {
         <code className="request get">
           <a href="https://bionic-wow.herokuapp.com/wows/directors">
             https://bionic-wow.herokuapp.com/wows/directors
+          </a>
+        </code>
+      </pre>
+      <h3>All Audio</h3>
+      <p>Retrieve all audio clips from movies in which Owen Wilson says "wow."</p>
+      <pre>
+        <code className="request get">
+          <a href="https://bionic-wow.herokuapp.com/wows/audio">
+            https://bionic-wow.herokuapp.com/wows/audio
+          </a>
+        </code>
+      </pre>      
+       <h3>All Video</h3>
+      <p>Retrieve all video clips from movies in which Owen Wilson says "wow."</p>
+      <pre>
+        <code className="request get">
+          <a href="https://bionic-wow.herokuapp.com/wows/video">
+            https://bionic-wow.herokuapp.com/wows/video
+          </a>
+        </code>
+      </pre>      
+      <h2>Sort multiple results</h4>
+      <p>
+        All endpoint support sorting of multiple results by either movie, 
+	release_date, year, director, number_current_wow, movie_clip_size,
+	or audio_clip_length. Sort direction can be either asc (ascending)
+        or desc (descending).
+      </p>
+      <pre>
+        <code className="request get">
+          <a href="https://bionic-wow.herokuapp.com/wows/random?results=10&sort=movie_clip_size&direction=desc">
+            https://bionic-wow.herokuapp.com/wows/random?results=10&sort=movie_clip_size&direction=desc
+          </a>
+        </code>
+      </pre>
+      <pre>
+        <code className="request get">
+          <a href="https://bionic-wow.herokuapp.com/wows/video?results=3&sort=movie_clip_size&direction=desc">
+            https://bionic-wow.herokuapp.com/wows/video?results=3&sort=movie_clip_size&direction=desc
           </a>
         </code>
       </pre>
