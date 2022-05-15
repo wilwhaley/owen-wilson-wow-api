@@ -198,6 +198,7 @@ Wil Whaley - wilwhaley@gmail.com
 Bionic API Link: [https://bionic-wow.herokuapp.com/](https://bionic-wow.herokuapp.com/)
 
 Original API Link: [https://owen-wilson-wow-api.herokuapp.com/](https://owen-wilson-wow-api.herokuapp.com/)
+
 Original API Documentation: [https://wow.readme.io](https://wow.readme.io)
 
 # Disclaimer

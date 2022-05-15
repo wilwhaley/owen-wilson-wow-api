@@ -61,13 +61,23 @@ const App = () => {
             >
               bionic-wow.herokuapp.com
             </a>
-          </b>{" "}
-          is a free JSON API for actor Owen Wilson's "wow" exclamations in
+          </b>
+	  {" "} is an extended version of {" "}
+          <b>
+            <a
+              href="https://owen-wilson-wow-api.herokuapp.com"
+              rel="noreferrer noopener"
+            >
+              owen-wilson-wow-api.herokuapp.com
+            </a>
+          </b>
+	  , a free JSON API for actor Owen Wilson's "wow" exclamations in
           movies.
+
           <br />
           <br />
           <a href="https://wow.readme.io" rel="noreferrer noopener">
-            View the full Original API docs
+            View the full ORIGINAL owen-wilson-wow API docs
           </a>{" "}
           (powered by{" "}
           <a href="https://readme.com" rel="noreferrer noopener">
@@ -288,9 +298,9 @@ const App = () => {
           </a>
         </code>
       </pre>      
-      <h2>Sort multiple results</h4>
+      <h3>Sort Results</h3>
       <p>
-        All endpoint support sorting of multiple results by either movie, 
+        All endpoints support result sorting by either movie, 
 	release_date, year, director, number_current_wow, movie_clip_size,
 	or audio_clip_length. Sort direction can be either asc (ascending)
         or desc (descending).
@@ -304,15 +314,55 @@ const App = () => {
       </pre>
       <pre>
         <code className="request get">
-          <a href="https://bionic-wow.herokuapp.com/wows/video?results=3&sort=movie_clip_size&direction=desc">
-            https://bionic-wow.herokuapp.com/wows/video?results=3&sort=movie_clip_size&direction=desc
+          <a href="https://bionic-wow.herokuapp.com/wows/video?&sort=movie_clip_size&direction=desc">
+            https://bionic-wow.herokuapp.com/wows/video?sort=movie_clip_size&direction=desc
           </a>
         </code>
       </pre>
+      <pre>
+        <code className="request get">
+          <a href="https://bionic-wow.herokuapp.com/wows/ordered/7-11?&sort=movie_clip_size&direction=desc">
+            https://bionic-wow.herokuapp.com/wows/ordered/7-11?sort=movie_clip_size&direction=desc
+          </a>
+        </code>
+      </pre>
+
+
+      <div className="disclaimer">
+        <p>
+          <b>Disclaimer 1:</b> The Owen Wilson Wow API is not affiliated,
+          associated, authorized, endorsed by, or in any way officially
+          connected with Owen Wilson, or any of his subsidiaries or affiliates.
+          All motion pictures, products, and brands mentioned on this website
+          are the respective trademarks and copyrights of their owners.
+        </p>
+	<p>
+	  <b>Disclaimer 2:</b> This is a modified version of the 
+          owen-wilson-wow-api.  Please take care when submitting feedback.
+	</p>
+      </div>
+
       <div className="contact">
         <p>
-          <b>Contact:</b> If you have a correction or a suggestion for the original API,
-          feel free to open up an{" "}
+          <b>Contact:</b> If you have a correction or a suggestion for the 
+          bionic-wow API, feel free to open up an{" "}
+          <a
+            href="https://github.com/wilwhaley/owen-wilson-wow-api/issues"
+            rel="noopener noreferrer"
+          >
+            issue
+          </a>{" "}
+          on its{" "}
+          <a
+            href="https://github.com/wilwhaley/owen-wilson-wow-api"
+            rel="noopener noreferrer"
+          >
+            GitHub repository
+          </a>
+        </p>
+        <p>
+          <b>Contact:</b> If you have a correction or a suggestion for the ORIGINAL
+          API, feel free to open up an{" "}
           <a
             href="https://github.com/amamenko/owen-wilson-wow-api/issues"
             rel="noopener noreferrer"
@@ -326,7 +376,7 @@ const App = () => {
           >
             GitHub repository
           </a>
-          . If you have a comment or a question about the original API, you may reach out
+          . If you have a comment or a question about the ORIGINAL API, you may reach out
           to its creator on Twitter{" "}
           <a href="https://twitter.com/AviMamenko" rel="noopener noreferrer">
             @AviMamenko
@@ -338,19 +388,8 @@ const App = () => {
           .
         </p>
       </div>
-      <div className="disclaimer">
-        <p>
-          <b>Disclaimer 1:</b> The Owen Wilson Wow API is not affiliated,
-          associated, authorized, endorsed by, or in any way officially
-          connected with Owen Wilson, or any of his subsidiaries or affiliates.
-          All motion pictures, products, and brands mentioned on this website
-          are the respective trademarks and copyrights of their owners.
-        </p>
-	<p>
-	  <b>Disclaimer 2:</b> This is a modified version of the origina
-          owen-wilson-wow-api.
-	</p>
-      </div>
+
+
       <p>
         The Owen Wilson Wow API was created in 2022 by{" "}
         <a href="https://amamenko.github.io" rel="noopener noreferrer">
